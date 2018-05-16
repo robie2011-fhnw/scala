@@ -1,0 +1,31 @@
+plugins {
+    id 'scala'
+}
+
+repositories {
+    jcenter()
+}
+
+// sourceCompatibility = 1.8
+
+dependencies {
+    compile 'org.scala-lang:scala-library:2.12.3'
+}
+
+task zip(type: Zip) {
+    from projectDir
+    
+    include 'build.gradle'
+	include '.classpath'
+	include '.project'
+	
+	include 'src/main/scala/ch/mse/app/traits/warmer/*.scala'
+	include 'src/main/scala/ch/mse/app/traits/observer/*.scala'
+	include 'src/main/scala/ch/mse/app/traits/Logger.scala'
+	include 'src/main/scala/ch/mse/app/traits/Similarity.scala'
+	include 'src/main/scala/ch/mse/app/traits/IntQueueTest.scala'
+	include 'src/main/scala/ch/mse/app/traits/TraitTest1.scala'
+	include 'src/main/scala/ch/mse/app/traits/TraitTest2.scala'
+	
+	include 'src/main/java/ch/mse/app/**/*.java'
+}
